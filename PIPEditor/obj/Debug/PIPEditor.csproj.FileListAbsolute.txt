@@ -1,0 +1,9 @@
+D:\Dev\PIPEditor\PIPEditor\bin\Debug\PIPEditor.exe.config
+D:\Dev\PIPEditor\PIPEditor\bin\Debug\PIPEditor.exe
+D:\Dev\PIPEditor\PIPEditor\bin\Debug\PIPEditor.pdb
+D:\Dev\PIPEditor\PIPEditor\obj\Debug\PIPEditor.csprojResolveAssemblyReference.cache
+D:\Dev\PIPEditor\PIPEditor\obj\Debug\PIPEditor.Properties.Resources.resources
+D:\Dev\PIPEditor\PIPEditor\obj\Debug\PIPEditor.csproj.GenerateResource.Cache
+D:\Dev\PIPEditor\PIPEditor\obj\Debug\PIPEditor.exe
+D:\Dev\PIPEditor\PIPEditor\obj\Debug\PIPEditor.pdb
+D:\Dev\PIPEditor\PIPEditor\obj\Debug\PIPEditor.frmMain.resources
