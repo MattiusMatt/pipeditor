@@ -53,17 +53,17 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picPipScreen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bndPipEntry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndPipFile)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPipScreen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 66);
+            this.label1.Location = new System.Drawing.Point(304, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
@@ -73,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(163, 85);
+            this.label2.Location = new System.Drawing.Point(360, 48);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 13);
@@ -93,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(163, 104);
+            this.label4.Location = new System.Drawing.Point(416, 48);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 13);
@@ -103,7 +103,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(163, 124);
+            this.label5.Location = new System.Drawing.Point(163, 76);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
@@ -113,15 +113,16 @@
             // textBox5
             // 
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Data", true));
-            this.textBox5.Location = new System.Drawing.Point(197, 121);
+            this.textBox5.Location = new System.Drawing.Point(197, 73);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(227, 20);
+            this.textBox5.Size = new System.Drawing.Size(290, 20);
             this.textBox5.TabIndex = 8;
             // 
             // bndPipEntry
             // 
             this.bndPipEntry.DataSource = typeof(PIPEditor.PIPEntry);
+            this.bndPipEntry.CurrentItemChanged += new System.EventHandler(this.bndPipEntry_CurrentItemChanged);
             // 
             // dlgOpenPip
             // 
@@ -139,7 +140,7 @@
             this.lbPipEntries.Location = new System.Drawing.Point(7, 46);
             this.lbPipEntries.Margin = new System.Windows.Forms.Padding(2);
             this.lbPipEntries.Name = "lbPipEntries";
-            this.lbPipEntries.Size = new System.Drawing.Size(155, 355);
+            this.lbPipEntries.Size = new System.Drawing.Size(155, 264);
             this.lbPipEntries.TabIndex = 11;
             this.lbPipEntries.ValueMember = "Type";
             this.lbPipEntries.SelectedIndexChanged += new System.EventHandler(this.lbPipEntries_SelectedIndexChanged);
@@ -158,7 +159,7 @@
             this.cbEntryType.Location = new System.Drawing.Point(197, 44);
             this.cbEntryType.Margin = new System.Windows.Forms.Padding(2);
             this.cbEntryType.Name = "cbEntryType";
-            this.cbEntryType.Size = new System.Drawing.Size(68, 21);
+            this.cbEntryType.Size = new System.Drawing.Size(103, 21);
             this.cbEntryType.TabIndex = 13;
             this.cbEntryType.ValueMember = "Type";
             // 
@@ -225,34 +226,34 @@
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "X", true));
-            this.textBox1.Location = new System.Drawing.Point(197, 64);
+            this.textBox1.Location = new System.Drawing.Point(322, 45);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
+            this.textBox1.Size = new System.Drawing.Size(34, 20);
             this.textBox1.TabIndex = 19;
             // 
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Y", true));
-            this.textBox2.Location = new System.Drawing.Point(197, 83);
+            this.textBox2.Location = new System.Drawing.Point(378, 45);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 20);
+            this.textBox2.Size = new System.Drawing.Size(34, 20);
             this.textBox2.TabIndex = 20;
             // 
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Size", true));
-            this.textBox3.Location = new System.Drawing.Point(197, 102);
+            this.textBox3.Location = new System.Drawing.Point(447, 44);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 20);
+            this.textBox3.Size = new System.Drawing.Size(34, 20);
             this.textBox3.TabIndex = 21;
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(7, 413);
+            this.btnAdd.Location = new System.Drawing.Point(7, 316);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -264,7 +265,7 @@
             // btnRemove
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemove.Location = new System.Drawing.Point(87, 413);
+            this.btnRemove.Location = new System.Drawing.Point(87, 316);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
@@ -273,21 +274,21 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // pictureBox1
+            // picPipScreen
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(167, 161);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(320, 240);
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
+            this.picPipScreen.BackColor = System.Drawing.Color.Black;
+            this.picPipScreen.Location = new System.Drawing.Point(167, 98);
+            this.picPipScreen.Name = "picPipScreen";
+            this.picPipScreen.Size = new System.Drawing.Size(320, 240);
+            this.picPipScreen.TabIndex = 24;
+            this.picPipScreen.TabStop = false;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 447);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(492, 350);
+            this.Controls.Add(this.picPipScreen);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textBox3);
@@ -314,7 +315,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bndPipFile)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPipScreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,7 +346,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picPipScreen;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PIPEditor
@@ -33,6 +34,7 @@ namespace PIPEditor
             _pipFile.Load();
 
             bndPipFile.DataSource = _pipFile;
+            renderPip();
         }
 
         private void lbPipEntries_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +72,11 @@ namespace PIPEditor
             lbPipEntries.DataSource = _pipFile.PipEntries;
         }
 
+        private void bndPipEntry_CurrentItemChanged(object sender, EventArgs e)
+        {
+            renderPip();
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
@@ -77,9 +84,40 @@ namespace PIPEditor
 
         #endregion
 
-        private void bndPipFile_DataSourceChanged_1(object sender, EventArgs e)
-        {
+        #region private methods
 
+        private void renderPip()
+        {
+            // Initialise Pip Screen
+            Bitmap pipImage = new Bitmap(picPipScreen.Width, picPipScreen.Height);
+            Graphics graphics = Graphics.FromImage(pipImage);
+
+            graphics.FillRectangle(Brushes.Black, new RectangleF(0, 0, pipImage.Width, pipImage.Height));
+            
+            foreach (PIPEntry entry in _pipFile.PipEntries)
+            {
+                switch (entry.Type)
+                {
+                    case PIPEntry.PipType.TEXT:
+                        renderText(entry, graphics);
+                        break;
+
+                    case PIPEntry.PipType.IMAGE:
+                        break;
+                }
+            }
+
+            picPipScreen.Image = pipImage;
         }
+
+        private void renderText(PIPEntry entry, Graphics graphics)
+        {
+            using (Font font = new Font("Arial", entry.Size * 7))
+            {
+                graphics.DrawString(entry.Data, font, Brushes.Green, new PointF(entry.X, entry.Y));
+            }
+        }
+
+        #endregion
     }
 }
