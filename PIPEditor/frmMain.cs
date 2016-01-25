@@ -33,7 +33,6 @@ namespace PIPEditor
             _pipFile.Load();
 
             bndPipFile.DataSource = _pipFile;
-            lbPipEntries.DataSource = _pipFile.PipEntries;
         }
 
         private void lbPipEntries_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,29 +55,31 @@ namespace PIPEditor
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            _pipFile.NewEntry();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            _pipFile.RemoveEntry((PIPEntry)lbPipEntries.SelectedItem);
+        }
+
+        private void bndPipFile_DataSourceChanged(object sender, EventArgs e)
+        {
+            lbPipEntries.DataSource = _pipFile.PipEntries;
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (_pipFile != null)
-            {
-                _pipFile.PipEntries.Add(new PIPEntry() { Data = "New", X = 0, Y = 0, Type = PIPEntry.PipType.TEXT, Size = 1 });
-                bndPipFile.DataSource = _pipFile;
-                lbPipEntries.DataSource = _pipFile.PipEntries;
-            }
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (_pipFile != null && lbPipEntries.SelectedItem != null)
-            {
-                _pipFile.PipEntries.Remove((PIPEntry)lbPipEntries.SelectedItem);
-            }
-        }
-
         #endregion
+
+        private void bndPipFile_DataSourceChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

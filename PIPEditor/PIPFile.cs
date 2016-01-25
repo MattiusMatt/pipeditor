@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Text;
 
@@ -10,12 +11,13 @@ namespace PIPEditor
         #region private properties
 
         private string _filePath;
+        private BindingList<PIPEntry> _pipEntries;
 
         #endregion
 
         #region public properties
 
-        public List<PIPEntry> PipEntries;
+        public IEnumerable<PIPEntry> PipEntries { get { return _pipEntries; } }
         public string FilePath { get { return _filePath; } }
 
         #endregion
@@ -31,9 +33,25 @@ namespace PIPEditor
 
         #region public methods
 
+        public void NewEntry()
+        {
+            if (_pipEntries != null)
+            {
+                this._pipEntries.Add(new PIPEntry() { Data = "New", X = 0, Y = 0, Type = PIPEntry.PipType.TEXT, Size = 1 });
+            }
+        }
+
+        public void RemoveEntry(PIPEntry entry)
+        {
+            if (_pipEntries != null)
+            {
+                this._pipEntries.Remove(entry);
+            }
+        }
+
         public void Load()
         {
-            this.PipEntries = new List<PIPEntry>();
+            this._pipEntries = new BindingList<PIPEntry>();
 
             using (BinaryReader pip = new BinaryReader(File.OpenRead(_filePath)))
             {
@@ -75,7 +93,7 @@ namespace PIPEditor
 
                     entry.Data = data.ToString();
 
-                    this.PipEntries.Add(entry);
+                    this._pipEntries.Add(entry);
                 }
             }
         }
@@ -84,7 +102,7 @@ namespace PIPEditor
         {
             using (BinaryWriter pip = new BinaryWriter(File.Create(_filePath)))
             {
-                for (int i = 0; i < this.PipEntries.Count; i++)
+                for (int i = 0; i < this._pipEntries.Count; i++)
                 {
                     if (i > 0)
                     {
@@ -93,7 +111,7 @@ namespace PIPEditor
                         pip.Write((char)10);
                     }
 
-                    PIPEntry entry = this.PipEntries[i];
+                    PIPEntry entry = this._pipEntries[i];
 
                     pip.Write((byte)entry.Type);
                     pip.Write((Int16)entry.X);
