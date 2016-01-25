@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace PIPEditor
@@ -103,6 +104,7 @@ namespace PIPEditor
                         break;
 
                     case PIPEntry.PipType.IMAGE:
+                        renderImage(entry, graphics);
                         break;
                 }
             }
@@ -112,9 +114,22 @@ namespace PIPEditor
 
         private void renderText(PIPEntry entry, Graphics graphics)
         {
-            using (Font font = new Font("Arial", entry.Size * 7))
+            using (Font font = new Font("Fixedsys", entry.Size * 7))
             {
                 graphics.DrawString(entry.Data, font, Brushes.Green, new PointF(entry.X, entry.Y));
+            }
+        }
+
+        private void renderImage(PIPEntry entry, Graphics graphics)
+        {
+            string directory = Path.GetDirectoryName(_pipFile.FilePath);
+            string path = string.Format(@"{0}\{1}", directory, entry.Data);
+
+            if (File.Exists(path))
+            {
+                Image image = Image.FromFile(path);
+
+                graphics.DrawImage(image, new PointF(entry.X, entry.Y));
             }
         }
 
