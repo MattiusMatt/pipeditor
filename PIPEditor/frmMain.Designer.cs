@@ -63,8 +63,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(557, 89);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label1.Location = new System.Drawing.Point(313, 293);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 25);
             this.label1.TabIndex = 1;
@@ -73,8 +78,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(660, 89);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label2.Location = new System.Drawing.Point(369, 293);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 25);
             this.label2.TabIndex = 3;
@@ -83,8 +93,13 @@
             // label3
             // 
             this.label3.AutoSize = true;
+<<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(299, 81);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label3.Location = new System.Drawing.Point(166, 289);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 25);
             this.label3.TabIndex = 5;
@@ -93,8 +108,13 @@
             // label4
             // 
             this.label4.AutoSize = true;
+<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(763, 89);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label4.Location = new System.Drawing.Point(425, 293);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 25);
             this.label4.TabIndex = 7;
@@ -103,8 +123,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
+<<<<<<< HEAD
             this.label5.Location = new System.Drawing.Point(299, 140);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label5.Location = new System.Drawing.Point(166, 321);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 25);
             this.label5.TabIndex = 9;
@@ -113,8 +138,13 @@
             // textBox5
             // 
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Data", true));
+<<<<<<< HEAD
             this.textBox5.Location = new System.Drawing.Point(361, 135);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.textBox5.Location = new System.Drawing.Point(200, 318);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(528, 29);
             this.textBox5.TabIndex = 8;
@@ -156,10 +186,17 @@
             this.cbEntryType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bndPipEntry, "Type", true));
             this.cbEntryType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEntryType.FormattingEnabled = true;
+<<<<<<< HEAD
             this.cbEntryType.Location = new System.Drawing.Point(361, 81);
             this.cbEntryType.Margin = new System.Windows.Forms.Padding(4);
             this.cbEntryType.Name = "cbEntryType";
             this.cbEntryType.Size = new System.Drawing.Size(186, 32);
+=======
+            this.cbEntryType.Location = new System.Drawing.Point(200, 289);
+            this.cbEntryType.Margin = new System.Windows.Forms.Padding(2);
+            this.cbEntryType.Name = "cbEntryType";
+            this.cbEntryType.Size = new System.Drawing.Size(109, 21);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.cbEntryType.TabIndex = 13;
             // 
             // menuStrip1
@@ -169,7 +206,12 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+<<<<<<< HEAD
             this.menuStrip1.Size = new System.Drawing.Size(902, 38);
+=======
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(498, 24);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -217,15 +259,24 @@
             this.label6.Location = new System.Drawing.Point(13, 42);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
+<<<<<<< HEAD
             this.label6.Size = new System.Drawing.Size(88, 25);
+=======
+            this.label6.Size = new System.Drawing.Size(81, 13);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.label6.TabIndex = 18;
-            this.label6.Text = "File Path";
+            this.label6.Text = "No file loaded...";
             // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "X", true));
+<<<<<<< HEAD
             this.textBox1.Location = new System.Drawing.Point(590, 83);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.textBox1.Location = new System.Drawing.Point(331, 290);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(59, 29);
             this.textBox1.TabIndex = 19;
@@ -233,8 +284,13 @@
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Y", true));
+<<<<<<< HEAD
             this.textBox2.Location = new System.Drawing.Point(693, 83);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.textBox2.Location = new System.Drawing.Point(387, 290);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(59, 29);
             this.textBox2.TabIndex = 20;
@@ -242,8 +298,13 @@
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Size", true));
+<<<<<<< HEAD
             this.textBox3.Location = new System.Drawing.Point(820, 81);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.textBox3.Location = new System.Drawing.Point(456, 289);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(59, 29);
             this.textBox3.TabIndex = 21;
@@ -275,8 +336,12 @@
             // picPipScreen
             // 
             this.picPipScreen.BackColor = System.Drawing.Color.Black;
+<<<<<<< HEAD
             this.picPipScreen.Location = new System.Drawing.Point(306, 181);
             this.picPipScreen.Margin = new System.Windows.Forms.Padding(6);
+=======
+            this.picPipScreen.Location = new System.Drawing.Point(170, 46);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.picPipScreen.Name = "picPipScreen";
             this.picPipScreen.Size = new System.Drawing.Size(587, 443);
             this.picPipScreen.TabIndex = 24;
@@ -286,7 +351,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(902, 646);
+=======
+            this.ClientSize = new System.Drawing.Size(498, 350);
+>>>>>>> 296e50a36ddc28d1c877d45deaa9b31ae9f79d0c
             this.Controls.Add(this.picPipScreen);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
@@ -309,6 +378,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PIP Editor";
             ((System.ComponentModel.ISupportInitialize)(this.bndPipEntry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndPipFile)).EndInit();
