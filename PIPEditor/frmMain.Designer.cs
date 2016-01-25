@@ -63,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(304, 48);
+            this.label1.Location = new System.Drawing.Point(313, 293);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
@@ -73,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(360, 48);
+            this.label2.Location = new System.Drawing.Point(369, 293);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 13);
@@ -83,7 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(163, 44);
+            this.label3.Location = new System.Drawing.Point(166, 289);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
@@ -93,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(416, 48);
+            this.label4.Location = new System.Drawing.Point(425, 293);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 13);
@@ -103,7 +103,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(163, 76);
+            this.label5.Location = new System.Drawing.Point(166, 321);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
@@ -113,7 +113,7 @@
             // textBox5
             // 
             this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Data", true));
-            this.textBox5.Location = new System.Drawing.Point(197, 73);
+            this.textBox5.Location = new System.Drawing.Point(200, 318);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(290, 20);
@@ -156,10 +156,10 @@
             this.cbEntryType.DisplayMember = "Type";
             this.cbEntryType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEntryType.FormattingEnabled = true;
-            this.cbEntryType.Location = new System.Drawing.Point(197, 44);
+            this.cbEntryType.Location = new System.Drawing.Point(200, 289);
             this.cbEntryType.Margin = new System.Windows.Forms.Padding(2);
             this.cbEntryType.Name = "cbEntryType";
-            this.cbEntryType.Size = new System.Drawing.Size(103, 21);
+            this.cbEntryType.Size = new System.Drawing.Size(109, 21);
             this.cbEntryType.TabIndex = 13;
             this.cbEntryType.ValueMember = "Type";
             // 
@@ -171,7 +171,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(492, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(498, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -219,14 +219,14 @@
             this.label6.Location = new System.Drawing.Point(7, 23);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 18;
-            this.label6.Text = "File Path";
+            this.label6.Text = "No file loaded...";
             // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "X", true));
-            this.textBox1.Location = new System.Drawing.Point(322, 45);
+            this.textBox1.Location = new System.Drawing.Point(331, 290);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(34, 20);
@@ -235,7 +235,7 @@
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Y", true));
-            this.textBox2.Location = new System.Drawing.Point(378, 45);
+            this.textBox2.Location = new System.Drawing.Point(387, 290);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(34, 20);
@@ -244,7 +244,7 @@
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bndPipEntry, "Size", true));
-            this.textBox3.Location = new System.Drawing.Point(447, 44);
+            this.textBox3.Location = new System.Drawing.Point(456, 289);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(34, 20);
@@ -277,7 +277,7 @@
             // picPipScreen
             // 
             this.picPipScreen.BackColor = System.Drawing.Color.Black;
-            this.picPipScreen.Location = new System.Drawing.Point(167, 98);
+            this.picPipScreen.Location = new System.Drawing.Point(170, 46);
             this.picPipScreen.Name = "picPipScreen";
             this.picPipScreen.Size = new System.Drawing.Size(320, 240);
             this.picPipScreen.TabIndex = 24;
@@ -287,7 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 350);
+            this.ClientSize = new System.Drawing.Size(498, 350);
             this.Controls.Add(this.picPipScreen);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
@@ -310,6 +310,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PIP Editor";
             ((System.ComponentModel.ISupportInitialize)(this.bndPipEntry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndPipFile)).EndInit();
