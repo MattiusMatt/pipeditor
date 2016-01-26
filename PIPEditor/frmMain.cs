@@ -112,20 +112,35 @@ namespace PIPEditor
             picPipScreen.Image = pipImage;
         }
 
-        private Color convert565(Int16 col565)
+        public static Color convert565ToColour(Int16 color)
         {
-            int r = (col565 * 527 + 23) >> 6;
-            int g = (col565 * 259 + 33) >> 6;
-            int b = (col565 * 527 + 23) >> 6;
+            Int32 red = (Int32)(((color >> 0xA) & 0x1F) * 8.225806f);
+            Int32 green = (Int32)(((color >> 0x5) & 0x1F) * 8.225806f);
+            Int32 blue = (Int32)((color & 0x1F) * 8.225806f);
 
-            return Color.FromArgb(255, r, g, b);
+            if (red < 0)
+                red = 0;
+            else if (red > 0xFF)
+                red = 0xFF;
+
+            if (green < 0)
+                green = 0;
+            else if (green > 0xFF)
+                green = 255;
+
+            if (blue < 0)
+                blue = 0;
+            else if (blue > 0xFF)
+                blue = 0xFF;
+
+            return Color.FromArgb(255, red, green, blue);
         }
 
         private void renderText(PIPEntry entry, Graphics graphics)
         {
             using (Font font = new Font("Terminal", entry.Size * 7))
             {
-                var brush = new SolidBrush(convert565(entry.Color));
+                var brush = new SolidBrush(convert565ToColour(entry.Color));
                 graphics.DrawString(entry.Data, font, brush, new PointF(entry.X, entry.Y));
             }
         }

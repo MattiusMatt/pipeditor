@@ -123,6 +123,8 @@ namespace PIPEditor
                     {
                         case PIPEntry.PipType.TEXT:
                             pip.Write((byte)entry.Size);
+                            pip.Write((Int16)entry.Color);
+                            pip.Write((Int16)entry.BackColor);
                             break;
 
                         case PIPEntry.PipType.IMAGE:
