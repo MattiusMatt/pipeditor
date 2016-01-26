@@ -112,11 +112,21 @@ namespace PIPEditor
             picPipScreen.Image = pipImage;
         }
 
+        private Color convert565(Int16 col565)
+        {
+            int r = (col565 * 527 + 23) >> 6;
+            int g = (col565 * 259 + 33) >> 6;
+            int b = (col565 * 527 + 23) >> 6;
+
+            return Color.FromArgb(255, r, g, b);
+        }
+
         private void renderText(PIPEntry entry, Graphics graphics)
         {
-            using (Font font = new Font("Fixedsys", entry.Size * 7))
+            using (Font font = new Font("Terminal", entry.Size * 7))
             {
-                graphics.DrawString(entry.Data, font, Brushes.Green, new PointF(entry.X, entry.Y));
+                var brush = new SolidBrush(convert565(entry.Color));
+                graphics.DrawString(entry.Data, font, brush, new PointF(entry.X, entry.Y));
             }
         }
 

@@ -67,8 +67,8 @@ namespace PIPEditor
                     {
                         case PIPEntry.PipType.TEXT:
                             entry.Size = pip.ReadByte();
-                            //entry.Color = pip.ReadInt16();
-                            //entry.BackColor = pip.ReadInt16();
+                            entry.Color = pip.ReadInt16();
+                            entry.BackColor = pip.ReadInt16();
                             break;
 
                         case PIPEntry.PipType.IMAGE:
