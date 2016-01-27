@@ -159,5 +159,11 @@ namespace PIPEditor
         }
 
         #endregion
+
+        private void cmdWriteSerial_Click(object sender, EventArgs e)
+        {
+            _pipFile.WriteSerial("COM3", 9600);
+            _pipFile.Save();
+        }
     }
 }

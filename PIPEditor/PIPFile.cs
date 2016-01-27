@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.IO.Ports;
 using System.Text;
 
 namespace PIPEditor
@@ -134,6 +135,56 @@ namespace PIPEditor
                     pip.Write(Encoding.ASCII.GetBytes(entry.Data));
                 }
             }
+        }
+
+        public void WriteSerial(string comPort, Int32 baudRate)
+        {
+            SerialPort arduino = new SerialPort("COM3", baudRate, Parity.None, 8);
+
+            arduino.Open();
+
+            using (BinaryWriter pip = new BinaryWriter(arduino.BaseStream))
+            {
+                pip.Write('u');
+                pip.Flush();
+
+                for (int i = 0; i < _pipEntries.Count; i++)
+                {
+                    if (i > 0)
+                    {
+                        // finish previous entry
+                        pip.Write((char)13);
+                        pip.Write((char)10);
+                    }
+
+                    PIPEntry entry = this._pipEntries[i];
+
+                    pip.Write((byte)entry.Type);
+                    pip.Write((Int16)entry.X);
+                    pip.Write((Int16)entry.Y);
+
+                    switch (entry.Type)
+                    {
+                        case PIPEntry.PipType.TEXT:
+                            pip.Write((byte)entry.Size);
+                            pip.Write((Int16)entry.Color);
+                            pip.Write((Int16)entry.BackColor);
+                            break;
+
+                        case PIPEntry.PipType.IMAGE:
+                            break;
+                    }
+
+                    pip.Write(Encoding.ASCII.GetBytes(entry.Data));
+
+                    pip.Flush();
+                }
+
+                pip.Write((byte)11);
+                pip.Flush();
+            }
+
+            arduino.Close();
         }
 
         #endregion
