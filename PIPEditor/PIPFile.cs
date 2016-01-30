@@ -11,13 +11,16 @@ namespace PIPEditor
     {
         #region private properties
 
+        private SerialPort _arduino;
         private string _filePath;
         private BindingList<PIPEntry> _pipEntries;
+        private DataReceived _dataReceived;
 
         #endregion
 
         #region public properties
 
+        public delegate void DataReceived(string data);
         public IEnumerable<PIPEntry> PipEntries { get { return _pipEntries; } }
         public string FilePath { get { return _filePath; } }
 
@@ -25,9 +28,18 @@ namespace PIPEditor
 
         #region constructor
 
-        public PIPFile (string filePath)
+        public PIPFile (string filePath, string comPort, Int32 baudRate, DataReceived dataReceived)
         {
             _filePath = filePath;
+            _dataReceived = dataReceived;
+            _arduino = new SerialPort(comPort, baudRate, Parity.None, 8);
+            _arduino.DataReceived += _arduino_DataReceived;
+            _arduino.Open();
+        }
+
+        ~PIPFile ()
+        {
+            _arduino.Close();
         }
 
         #endregion
@@ -137,13 +149,9 @@ namespace PIPEditor
             }
         }
 
-        public void WriteSerial(string comPort, Int32 baudRate)
+        public void WriteSerial()
         {
-            SerialPort arduino = new SerialPort("COM3", baudRate, Parity.None, 8);
-
-            arduino.Open();
-
-            using (BinaryWriter pip = new BinaryWriter(arduino.BaseStream))
+            using (BinaryWriter pip = new BinaryWriter(_arduino.BaseStream))
             {
                 pip.Write('u');
                 pip.Flush();
@@ -183,8 +191,18 @@ namespace PIPEditor
                 pip.Write((byte)11);
                 pip.Flush();
             }
+        }
 
-            arduino.Close();
+        #endregion
+
+        #region private methods
+
+        private void _arduino_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort serialPort = (SerialPort)sender;
+            string data = serialPort.ReadExisting();
+
+            _dataReceived(data);
         }
 
         #endregion

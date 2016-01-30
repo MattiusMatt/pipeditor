@@ -31,11 +31,19 @@ namespace PIPEditor
 
         private void dlgOpenPip_FileOk(object sender, CancelEventArgs e)
         {
-            _pipFile = new PIPFile(dlgOpenPip.FileName);
+            _pipFile = new PIPFile(dlgOpenPip.FileName, "COM3", 9600, dataReceived);
             _pipFile.Load();
 
             bndPipFile.DataSource = _pipFile;
             renderPip();
+        }
+
+        private void dataReceived(string data)
+        {
+            if (txtComOut.InvokeRequired)
+            {
+                txtComOut.Invoke(new MethodInvoker(delegate { txtComOut.AppendText(data); }));
+            }
         }
 
         private void lbPipEntries_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,7 +170,7 @@ namespace PIPEditor
 
         private void cmdWriteSerial_Click(object sender, EventArgs e)
         {
-            _pipFile.WriteSerial("COM3", 9600);
+            _pipFile.WriteSerial();
             _pipFile.Save();
         }
     }
