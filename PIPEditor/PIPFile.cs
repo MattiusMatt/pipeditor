@@ -28,16 +28,17 @@ namespace PIPEditor
 
         #region constructor
 
-        public PIPFile (string filePath, string comPort, Int32 baudRate, DataReceived dataReceived)
+        public PIPFile(string filePath, string comPort, Int32 baudRate, DataReceived dataReceived)
         {
             _filePath = filePath;
             _dataReceived = dataReceived;
             _arduino = new SerialPort(comPort, baudRate, Parity.None, 8);
             _arduino.DataReceived += _arduino_DataReceived;
+            _arduino.WriteBufferSize = 4096 * 10;
             _arduino.Open();
         }
 
-        ~PIPFile ()
+        ~PIPFile()
         {
             _arduino.Close();
         }
@@ -151,46 +152,15 @@ namespace PIPEditor
 
         public void WriteSerial()
         {
-            using (BinaryWriter pip = new BinaryWriter(_arduino.BaseStream))
-            {
-                pip.Write('u');
-                pip.Flush();
+            this.Save();
 
-                for (int i = 0; i < _pipEntries.Count; i++)
-                {
-                    if (i > 0)
-                    {
-                        // finish previous entry
-                        pip.Write((char)13);
-                        pip.Write((char)10);
-                    }
+            _arduino.Write("u");
 
-                    PIPEntry entry = this._pipEntries[i];
+            byte[] pipData = File.ReadAllBytes(_filePath);
 
-                    pip.Write((byte)entry.Type);
-                    pip.Write((Int16)entry.X);
-                    pip.Write((Int16)entry.Y);
+            _arduino.Write(pipData, 0, pipData.Length);
 
-                    switch (entry.Type)
-                    {
-                        case PIPEntry.PipType.TEXT:
-                            pip.Write((byte)entry.Size);
-                            pip.Write((Int16)entry.Color);
-                            pip.Write((Int16)entry.BackColor);
-                            break;
-
-                        case PIPEntry.PipType.IMAGE:
-                            break;
-                    }
-
-                    pip.Write(Encoding.ASCII.GetBytes(entry.Data));
-
-                    pip.Flush();
-                }
-
-                pip.Write((byte)11);
-                pip.Flush();
-            }
+            _arduino.Write(new byte[] { 11 }, 0, 1);
         }
 
         #endregion
