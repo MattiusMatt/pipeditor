@@ -31,7 +31,7 @@ namespace PIPEditor
 
         private void dlgOpenPip_FileOk(object sender, CancelEventArgs e)
         {
-            _pipFile = new PIPFile(dlgOpenPip.FileName, "COM3", 9600, dataReceived);
+            _pipFile = new PIPFile(dlgOpenPip.FileName, txtComPort.Text, int.Parse(txtBaudRate.Text), dataReceived);
             _pipFile.Load();
 
             bndPipFile.DataSource = _pipFile;
@@ -172,6 +172,14 @@ namespace PIPEditor
         {
             _pipFile.WriteSerial();
             _pipFile.Save();
+        }
+
+        private void btnOpenCom_Click(object sender, EventArgs e)
+        {
+            if (_pipFile != null)
+            {
+                _pipFile.ToggleCom();
+            }
         }
     }
 }

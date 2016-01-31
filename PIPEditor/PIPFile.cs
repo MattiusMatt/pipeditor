@@ -21,7 +21,7 @@ namespace PIPEditor
         #region public properties
 
         public delegate void DataReceived(string data);
-        public IEnumerable<PIPEntry> PipEntries { get { return _pipEntries; } }
+        public IEnumerable<PIPEntry> PipEntries { get { return this._pipEntries; } }
         public string FilePath { get { return _filePath; } }
 
         #endregion
@@ -30,26 +30,40 @@ namespace PIPEditor
 
         public PIPFile(string filePath, string comPort, Int32 baudRate, DataReceived dataReceived)
         {
-            _filePath = filePath;
-            _dataReceived = dataReceived;
-            _arduino = new SerialPort(comPort, baudRate, Parity.None, 8);
-            _arduino.DataReceived += _arduino_DataReceived;
-            _arduino.WriteBufferSize = 4096 * 10;
-            _arduino.Open();
+            this._filePath = filePath;
+            this._dataReceived = dataReceived;
+            this._arduino = new SerialPort(comPort, baudRate, Parity.None, 8);
+            this._arduino.DataReceived += this._arduino_DataReceived;
+            this._arduino.WriteBufferSize = 4096 * 10;
         }
 
         ~PIPFile()
         {
-            _arduino.Close();
+            if (this._arduino.IsOpen)
+            {
+                this._arduino.Close();
+            }
         }
 
         #endregion
 
         #region public methods
 
+        public void ToggleCom()
+        {
+            if (!this._arduino.IsOpen)
+            {
+                this._arduino.Open();
+            }
+            else
+            {
+                this._arduino.Close();
+            }
+        }
+
         public void NewEntry()
         {
-            if (_pipEntries != null)
+            if (this._pipEntries != null)
             {
                 this._pipEntries.Add(new PIPEntry() { Data = "New", X = 0, Y = 0, Type = PIPEntry.PipType.TEXT, Size = 1 });
             }
@@ -57,7 +71,7 @@ namespace PIPEditor
 
         public void RemoveEntry(PIPEntry entry)
         {
-            if (_pipEntries != null)
+            if (this._pipEntries != null)
             {
                 this._pipEntries.Remove(entry);
             }
@@ -152,16 +166,21 @@ namespace PIPEditor
 
         public void WriteSerial()
         {
+            if (!this._arduino.IsOpen)
+            {
+                this._arduino.Open();
+            }
+            
             this.Save();
 
-            _arduino.Write("u");
+            this._arduino.Write("u");
 
             byte[] pipData = File.ReadAllBytes(_filePath);
 
-            _arduino.Write(pipData, 0, pipData.Length);
+            this._arduino.Write(pipData, 0, pipData.Length);
 
-            _arduino.Write(new byte[] { 11 }, 0, 1);
-            _arduino.BaseStream.Flush();
+            this._arduino.Write(new byte[] { 11 }, 0, 1);
+            this._arduino.BaseStream.Flush();
         }
 
         #endregion
@@ -173,7 +192,7 @@ namespace PIPEditor
             SerialPort serialPort = (SerialPort)sender;
             string data = serialPort.ReadExisting();
 
-            _dataReceived(data);
+            this._dataReceived(data);
         }
 
         #endregion

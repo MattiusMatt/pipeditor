@@ -61,11 +61,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmdWriteSerial = new System.Windows.Forms.Button();
             this.txtComOut = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBaudRate = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtComPort = new System.Windows.Forms.TextBox();
+            this.btnOpenCom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bndPipEntry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndPipFile)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPipScreen)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bndPipEntry
@@ -371,14 +378,78 @@
             this.txtComOut.Location = new System.Drawing.Point(908, 85);
             this.txtComOut.Multiline = true;
             this.txtComOut.Name = "txtComOut";
-            this.txtComOut.Size = new System.Drawing.Size(598, 677);
+            this.txtComOut.Size = new System.Drawing.Size(598, 443);
             this.txtComOut.TabIndex = 27;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txtBaudRate);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.txtComPort);
+            this.groupBox2.Location = new System.Drawing.Point(908, 545);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(598, 149);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "COM";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 69);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(58, 25);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Baud";
+            // 
+            // txtBaudRate
+            // 
+            this.txtBaudRate.Location = new System.Drawing.Point(70, 64);
+            this.txtBaudRate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBaudRate.Name = "txtBaudRate";
+            this.txtBaudRate.Size = new System.Drawing.Size(506, 29);
+            this.txtBaudRate.TabIndex = 34;
+            this.txtBaudRate.Text = "9600";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 32);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 25);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Port";
+            // 
+            // txtComPort
+            // 
+            this.txtComPort.Location = new System.Drawing.Point(70, 27);
+            this.txtComPort.Margin = new System.Windows.Forms.Padding(4);
+            this.txtComPort.Name = "txtComPort";
+            this.txtComPort.Size = new System.Drawing.Size(506, 29);
+            this.txtComPort.TabIndex = 32;
+            this.txtComPort.Text = "COM3";
+            // 
+            // btnOpenCom
+            // 
+            this.btnOpenCom.Location = new System.Drawing.Point(908, 714);
+            this.btnOpenCom.Margin = new System.Windows.Forms.Padding(6);
+            this.btnOpenCom.Name = "btnOpenCom";
+            this.btnOpenCom.Size = new System.Drawing.Size(595, 39);
+            this.btnOpenCom.TabIndex = 29;
+            this.btnOpenCom.Text = "Open / Close";
+            this.btnOpenCom.UseVisualStyleBackColor = true;
+            this.btnOpenCom.Click += new System.EventHandler(this.btnOpenCom_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1518, 774);
+            this.Controls.Add(this.btnOpenCom);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtComOut);
             this.Controls.Add(this.cmdWriteSerial);
             this.Controls.Add(this.groupBox1);
@@ -403,6 +474,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPipScreen)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,6 +514,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cmdWriteSerial;
         private System.Windows.Forms.TextBox txtComOut;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtBaudRate;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtComPort;
+        private System.Windows.Forms.Button btnOpenCom;
     }
 }
 
