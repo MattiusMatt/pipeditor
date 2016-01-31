@@ -161,6 +161,7 @@ namespace PIPEditor
             _arduino.Write(pipData, 0, pipData.Length);
 
             _arduino.Write(new byte[] { 11 }, 0, 1);
+            _arduino.BaseStream.Flush();
         }
 
         #endregion
