@@ -378,6 +378,7 @@
             this.txtComOut.Location = new System.Drawing.Point(908, 85);
             this.txtComOut.Multiline = true;
             this.txtComOut.Name = "txtComOut";
+            this.txtComOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtComOut.Size = new System.Drawing.Size(598, 443);
             this.txtComOut.TabIndex = 27;
             // 
