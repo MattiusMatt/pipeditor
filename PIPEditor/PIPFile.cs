@@ -101,6 +101,11 @@ namespace PIPEditor
 
                         case PIPEntry.PipType.IMAGE:
                             break;
+
+                        case PIPEntry.PipType.LINE:
+                            entry.EndX = pip.ReadInt16();
+                            entry.EndY = pip.ReadInt16();
+                            break;
                     }
 
                     var data = new StringBuilder();
@@ -156,6 +161,11 @@ namespace PIPEditor
                             break;
 
                         case PIPEntry.PipType.IMAGE:
+                            break;
+
+                        case PIPEntry.PipType.LINE:
+                            pip.Write((Int16)entry.EndX);
+                            pip.Write((Int16)entry.EndY);
                             break;
                     }
 

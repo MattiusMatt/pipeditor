@@ -91,6 +91,20 @@ namespace PIPEditor
             System.Windows.Forms.Application.Exit();
         }
 
+        private void cmdWriteSerial_Click(object sender, EventArgs e)
+        {
+            _pipFile.WriteSerial();
+            _pipFile.Save();
+        }
+
+        private void btnOpenCom_Click(object sender, EventArgs e)
+        {
+            if (_pipFile != null)
+            {
+                _pipFile.ToggleCom();
+            }
+        }
+
         #endregion
 
         #region private methods
@@ -113,6 +127,10 @@ namespace PIPEditor
 
                     case PIPEntry.PipType.IMAGE:
                         renderImage(entry, graphics);
+                        break;
+
+                    case PIPEntry.PipType.LINE:
+                        renderLine(entry, graphics);
                         break;
                 }
             }
@@ -166,20 +184,12 @@ namespace PIPEditor
             }
         }
 
+        private void renderLine(PIPEntry entry, Graphics graphics)
+        {
+            var pen = new Pen(convert565ToColour(entry.Color));
+            graphics.DrawLine(pen, new PointF(entry.X, entry.Y), new PointF(entry.EndX, entry.EndY));
+        }
+
         #endregion
-
-        private void cmdWriteSerial_Click(object sender, EventArgs e)
-        {
-            _pipFile.WriteSerial();
-            _pipFile.Save();
-        }
-
-        private void btnOpenCom_Click(object sender, EventArgs e)
-        {
-            if (_pipFile != null)
-            {
-                _pipFile.ToggleCom();
-            }
-        }
     }
 }
