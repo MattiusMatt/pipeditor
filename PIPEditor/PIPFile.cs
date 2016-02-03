@@ -105,6 +105,7 @@ namespace PIPEditor
                         case PIPEntry.PipType.LINE:
                             entry.EndX = pip.ReadInt16();
                             entry.EndY = pip.ReadInt16();
+                            entry.Color = pip.ReadInt16();
                             break;
                     }
 
@@ -158,18 +159,19 @@ namespace PIPEditor
                             pip.Write((byte)entry.Size);
                             pip.Write((Int16)entry.Color);
                             pip.Write((Int16)entry.BackColor);
+                            pip.Write(Encoding.ASCII.GetBytes(entry.Data));
                             break;
 
                         case PIPEntry.PipType.IMAGE:
+                            pip.Write(Encoding.ASCII.GetBytes(entry.Data));
                             break;
 
                         case PIPEntry.PipType.LINE:
                             pip.Write((Int16)entry.EndX);
                             pip.Write((Int16)entry.EndY);
+                            pip.Write((Int16)entry.Color);
                             break;
                     }
-
-                    pip.Write(Encoding.ASCII.GetBytes(entry.Data));
                 }
             }
         }
