@@ -26,6 +26,13 @@ namespace PIPEditor
         public Int16 Color { get; set; }
         public Int16 BackColor { get; set; }
         public string Data { get; set; }
+        public string Display
+        {
+            get
+            {
+                return this.Type == PipType.LINE ? @"LINE" : this.Data;
+            }
+        }
 
         #endregion
     }

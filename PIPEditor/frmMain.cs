@@ -105,6 +105,16 @@ namespace PIPEditor
             }
         }
 
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            this._pipFile.MoveEntryUp((PIPEntry)lbPipEntries.SelectedItem);
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            this._pipFile.MoveEntryDown((PIPEntry)lbPipEntries.SelectedItem);
+        }
+
         #endregion
 
         #region private methods

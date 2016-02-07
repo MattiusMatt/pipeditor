@@ -49,6 +49,34 @@ namespace PIPEditor
 
         #region public methods
 
+        public void MoveEntryUp(PIPEntry entry)
+        {
+            if (this._pipEntries.Count > 1)
+            {
+                var currentIndex = this._pipEntries.IndexOf(entry);
+
+                if (currentIndex > 0)
+                {
+                    this._pipEntries.Remove(entry);
+                    this._pipEntries.Insert(currentIndex - 1, entry);
+                }
+            }
+        }
+
+        public void MoveEntryDown(PIPEntry entry)
+        {
+            if (this._pipEntries.Count > 1)
+            {
+                var currentIndex = this._pipEntries.IndexOf(entry);
+
+                if (currentIndex < (this._pipEntries.Count - 1))
+                {
+                    this._pipEntries.Remove(entry);
+                    this._pipEntries.Insert(currentIndex + 1, entry);
+                }
+            }
+        }
+
         public void ToggleCom()
         {
             if (!this._arduino.IsOpen)
