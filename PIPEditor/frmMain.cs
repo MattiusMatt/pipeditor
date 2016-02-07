@@ -176,6 +176,11 @@ namespace PIPEditor
         {
             using (Font font = new Font("Terminal", entry.Size * 7))
             {
+                // Render Background
+                var backgroundBrush = new SolidBrush(convert565ToColour(entry.BackColor));
+                graphics.FillRectangle(backgroundBrush, new RectangleF(new PointF(entry.X, entry.Y), graphics.MeasureString(entry.Data, font)));
+
+                // Render Text
                 var brush = new SolidBrush(convert565ToColour(entry.Color));
                 graphics.DrawString(entry.Data, font, brush, new PointF(entry.X, entry.Y));
             }
