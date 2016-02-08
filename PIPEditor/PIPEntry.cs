@@ -10,7 +10,9 @@ namespace PIPEditor
         {
             TEXT = 0,
             IMAGE = 1,
-            LINE = 2
+            LINE = 2,
+            RECT = 3,
+            FILLRECT = 4
         }
 
         #endregion
@@ -30,7 +32,7 @@ namespace PIPEditor
         {
             get
             {
-                return this.Type == PipType.LINE ? @"LINE" : this.Data;
+                return this.Type == PipType.LINE || this.Type == PipType.RECT || this.Type == PipType.FILLRECT ? this.Type.ToString() : this.Data;
             }
         }
 

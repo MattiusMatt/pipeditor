@@ -142,6 +142,14 @@ namespace PIPEditor
                     case PIPEntry.PipType.LINE:
                         renderLine(entry, graphics);
                         break;
+
+                    case PIPEntry.PipType.RECT:
+                        renderRect(entry, graphics);
+                        break;
+
+                    case PIPEntry.PipType.FILLRECT:
+                        renderFillRect(entry, graphics);
+                        break;
                 }
             }
 
@@ -203,6 +211,18 @@ namespace PIPEditor
         {
             var pen = new Pen(convert565ToColour(entry.Color));
             graphics.DrawLine(pen, new PointF(entry.X, entry.Y), new PointF(entry.EndX, entry.EndY));
+        }
+
+        private void renderRect(PIPEntry entry, Graphics graphics)
+        {
+            var pen = new Pen(convert565ToColour(entry.Color));
+            graphics.DrawRectangle(pen, new Rectangle(entry.X, entry.Y, entry.EndX, entry.EndY));
+        }
+
+        private void renderFillRect(PIPEntry entry, Graphics graphics)
+        {
+            var brush = new SolidBrush(convert565ToColour(entry.Color));
+            graphics.FillRectangle(brush, new Rectangle(entry.X, entry.Y, entry.EndX, entry.EndY));
         }
 
         #endregion

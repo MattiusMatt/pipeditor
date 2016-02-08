@@ -131,6 +131,8 @@ namespace PIPEditor
                             break;
 
                         case PIPEntry.PipType.LINE:
+                        case PIPEntry.PipType.FILLRECT:
+                        case PIPEntry.PipType.RECT:
                             entry.EndX = pip.ReadInt16();
                             entry.EndY = pip.ReadInt16();
                             entry.Color = pip.ReadInt16();
@@ -195,6 +197,8 @@ namespace PIPEditor
                             break;
 
                         case PIPEntry.PipType.LINE:
+                        case PIPEntry.PipType.FILLRECT:
+                        case PIPEntry.PipType.RECT:
                             pip.Write((Int16)entry.EndX);
                             pip.Write((Int16)entry.EndY);
                             pip.Write((Int16)entry.Color);
