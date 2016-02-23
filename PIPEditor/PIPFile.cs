@@ -127,6 +127,7 @@ namespace PIPEditor
                             entry.BackColor = pip.ReadInt16();
                             break;
 
+                        case PIPEntry.PipType.SUBSCREENS:
                         case PIPEntry.PipType.IMAGE:
                             break;
 
@@ -192,6 +193,7 @@ namespace PIPEditor
                             pip.Write(Encoding.ASCII.GetBytes(entry.Data));
                             break;
 
+                        case PIPEntry.PipType.SUBSCREENS:
                         case PIPEntry.PipType.IMAGE:
                             pip.Write(Encoding.ASCII.GetBytes(entry.Data));
                             break;

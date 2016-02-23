@@ -131,6 +131,10 @@ namespace PIPEditor
             {
                 switch (entry.Type)
                 {
+                    case PIPEntry.PipType.SUBSCREENS:
+                        renderSubScreens(entry, graphics);
+                        break;
+
                     case PIPEntry.PipType.TEXT:
                         renderText(entry, graphics);
                         break;
@@ -178,6 +182,16 @@ namespace PIPEditor
                 blue = 0xFF;
 
             return Color.FromArgb(255, red, green, blue);
+        }
+
+        private void renderSubScreens(PIPEntry entry, Graphics graphics)
+        {
+            using (Font font = new Font("Terminal", 7))
+            {
+                // Render Text
+                var brush = new SolidBrush(Color.Green);
+                graphics.DrawString(entry.Data, font, brush, new PointF(entry.X, entry.Y));
+            }
         }
 
         private void renderText(PIPEntry entry, Graphics graphics)

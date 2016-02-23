@@ -12,7 +12,8 @@ namespace PIPEditor
             IMAGE = 1,
             LINE = 2,
             RECT = 3,
-            FILLRECT = 4
+            FILLRECT = 4,
+            SUBSCREENS = 5
         }
 
         #endregion
