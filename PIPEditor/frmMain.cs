@@ -189,8 +189,10 @@ namespace PIPEditor
             using (Font font = new Font("Terminal", 7))
             {
                 // Render Text
+                var menuTitles = string.Join("  ", entry.Data.Split('|'));
+
                 var brush = new SolidBrush(Color.Green);
-                graphics.DrawString(entry.Data, font, brush, new PointF(entry.X, entry.Y));
+                graphics.DrawString(menuTitles, font, brush, new PointF(entry.X, entry.Y));
             }
         }
 
