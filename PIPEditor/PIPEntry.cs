@@ -13,7 +13,8 @@ namespace PIPEditor
             LINE = 2,
             RECT = 3,
             FILLRECT = 4,
-            SUBSCREENS = 5
+            SUBSCREENS = 5,
+            SUBMENUS = 6
         }
 
         #endregion

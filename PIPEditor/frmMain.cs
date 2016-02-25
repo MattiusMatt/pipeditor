@@ -126,13 +126,17 @@ namespace PIPEditor
             Graphics graphics = Graphics.FromImage(pipImage);
 
             graphics.FillRectangle(Brushes.Black, new RectangleF(0, 0, pipImage.Width, pipImage.Height));
-            
+
             foreach (PIPEntry entry in _pipFile.PipEntries)
             {
                 switch (entry.Type)
                 {
                     case PIPEntry.PipType.SUBSCREENS:
                         renderSubScreens(entry, graphics);
+                        break;
+
+                    case PIPEntry.PipType.SUBMENUS:
+                        renderSubMenus(entry, graphics);
                         break;
 
                     case PIPEntry.PipType.TEXT:
@@ -193,6 +197,27 @@ namespace PIPEditor
 
                 var brush = new SolidBrush(Color.Green);
                 graphics.DrawString(menuTitles, font, brush, new PointF(entry.X, entry.Y));
+            }
+        }
+
+        private void renderSubMenus(PIPEntry entry, Graphics graphics)
+        {
+            using (Font font = new Font("Terminal", 7))
+            {
+                // Render Text
+                var menuTitles = entry.Data.Split('|');
+                var menuItemHeight = 20;
+                var startX = 20;
+                var startY = 55;
+
+                foreach (string menuTitle in menuTitles)
+                {
+                    var brush = new SolidBrush(Color.Green);
+                    graphics.DrawString(menuTitle, font, brush, new PointF(startX, startY));
+
+                    startY += menuItemHeight;
+                }
+
             }
         }
 
