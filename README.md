@@ -1,4 +1,5 @@
 # PipEditor
+This is an editor for PIP files which are used in my Pipdweno project located [here](https://github.com/MattiusMatt/pipdweno "PipDweno").
 ##Disclaimer
 This has not been designed for anyone else to use... thats my way of saying "it's a bit crap" and has massive issues I can't be bothered fixing, like the fact that if you open a second pip it just falls on its arse!
 
